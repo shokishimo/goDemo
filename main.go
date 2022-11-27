@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -13,5 +14,8 @@ func main() {
 	http.HandleFunc("/", normalResponse)
 
 	fmt.Println("Server in running on port 80")
-	http.ListenAndServe("localhost:80", nil)
+	e := http.ListenAndServe("localhost:80", nil)
+	if e != nil {
+		log.Fatal("Error in running the server")
+	}
 }
