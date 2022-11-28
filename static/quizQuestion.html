@@ -7,7 +7,93 @@
     <title>Question</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
+<style>
+    body{
+        background-color: #daf9f9;
+        margin: auto;
+        font-family: sans-serif;
+    }
+    /* layout div horizontally <start> */
+    .flex{
+        display: flex;
+        justify-content: center;
+        margin-top: 15%;
+    }
+    .item1{
+        width: 6%;
+        border-radius: 10px;
+        margin-top: 5%;
+    }
+    .item2{
+        background-color: white;
+        width: 30%;
+        padding-bottom: 15px;
+        border-radius: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .item3{
+        width: 6%;
+        border-radius: 10px;
+        margin-top: 5%;
+    }
+    /* layout div horizontally <end> */
+    .form{
+        text-align: center;
+        padding: auto;
+        margin: auto;
+    }
+    .sideButton{
+        background-color: orange;
+        border-radius: 15px;
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin: 0px;
+        border-width: 0px;
+        font-weight: bold;
+        color:#333132;
+    }
+    .button{
+        background-color: chartreuse;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 0px;
+        border-width: 0px;
+        width: 30%;
+        font-weight: bold;
+        color:#333132;
+    }
+    h1{
+        margin: 0px;
+        margin-top: 50px;
+        margin-bottom: 40px
+    }
+</style>
 <body>
-    <h1 style="text-align:center;">{{.Word}}</h1>
+    <div class="flex">
+        <div class="item1">
+            <form class="form" action="/start" method="GET">
+                <button class="sideButton"> Back </button>
+            </form>
+        </div>
+
+        <div class="item2">
+            <form class="form" action="/start" method="GET">
+                <div>
+                    <h1>{{.Word}}</h1>
+                </div>
+                <div>
+                    <button class="button">Answer</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="item3">
+            <form class="form" action="/start" method="GET">
+                <button class="sideButton">Next</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
