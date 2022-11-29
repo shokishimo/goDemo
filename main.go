@@ -48,7 +48,8 @@ func startQuiz(w http.ResponseWriter, r *http.Request) {
 
 	count = 0
 	tmpl := template.Must(template.ParseFiles("static/quizQuestion.html"))
-	// get random question
+
+	// get random question and the answer for it
 	data := qDataModel.Data{Question: "low-key", Answer: "「控え目、地味」「秘密」「ちょっと、なんとなく」"}
 
 	tmpl.Execute(w, data)
@@ -58,5 +59,4 @@ func nextQuestion(w http.ResponseWriter, r *http.Request) {
 }
 
 func showAnswer(w http.ResponseWriter, r *http.Request) {
-
 }
