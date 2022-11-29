@@ -7,12 +7,21 @@ import (
 	"text/template"
 )
 
+var count int = 0
+
+type Data struct {
+	Question string
+	Answer   string
+}
+
 func main() {
 	// Static file like css and JavaScript
 	// fileServer := http.FileServer(http.Dir("./static"))
 	// http.Handle("/", fileServer)
 	http.HandleFunc("/", indexFunc)
 	http.HandleFunc("/start", startQuiz)
+	http.HandleFunc("/next", nextQuestion)
+	http.HandleFunc("/answer", showAnswer)
 
 	// Start the server
 	fmt.Println("Server in running on port 80")
@@ -39,12 +48,17 @@ func startQuiz(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "ParseForm() err: %v", err)
 	}
 
+	count = 0
 	tmpl := template.Must(template.ParseFiles("static/quizQuestion.html"))
-
-	type Question struct {
-		Word string
-	}
-	data := Question{Word: "low-key"}
+	// get random question
+	data := Data{Question: "low-key", Answer: "「控え目、地味」「秘密」「ちょっと、なんとなく」"}
 
 	tmpl.Execute(w, data)
+}
+
+func nextQuestion(w http.ResponseWriter, r *http.Request) {
+}
+
+func showAnswer(w http.ResponseWriter, r *http.Request) {
+
 }
