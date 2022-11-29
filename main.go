@@ -5,14 +5,11 @@ import (
 	"log"
 	"net/http"
 	"text/template"
+
+	qDataModel "github.com/shokishimo/goDemo/models"
 )
 
 var count int = 0
-
-type Data struct {
-	Question string
-	Answer   string
-}
 
 func main() {
 	// Static file like css and JavaScript
@@ -22,6 +19,7 @@ func main() {
 	http.HandleFunc("/start", startQuiz)
 	http.HandleFunc("/next", nextQuestion)
 	http.HandleFunc("/answer", showAnswer)
+	//http.HandleFunc("/finish")
 
 	// Start the server
 	fmt.Println("Server in running on port 80")
@@ -51,7 +49,7 @@ func startQuiz(w http.ResponseWriter, r *http.Request) {
 	count = 0
 	tmpl := template.Must(template.ParseFiles("static/quizQuestion.html"))
 	// get random question
-	data := Data{Question: "low-key", Answer: "「控え目、地味」「秘密」「ちょっと、なんとなく」"}
+	data := qDataModel.Data{Question: "low-key", Answer: "「控え目、地味」「秘密」「ちょっと、なんとなく」"}
 
 	tmpl.Execute(w, data)
 }
