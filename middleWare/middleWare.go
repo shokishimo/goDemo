@@ -8,6 +8,8 @@ import (
 	qDataModel "github.com/shokishimo/goDemo/models"
 )
 
+var count int
+
 func indexFunc(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("static/index.html"))
 	tmpl.Execute(w, 0)
