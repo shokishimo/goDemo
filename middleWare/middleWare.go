@@ -10,12 +10,12 @@ import (
 
 var count int
 
-func indexFunc(w http.ResponseWriter, r *http.Request) {
+func IndexFunc(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("static/index.html"))
 	tmpl.Execute(w, 0)
 }
 
-func startQuiz(w http.ResponseWriter, r *http.Request) {
+func StartQuiz(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/start" {
 		http.Error(w, "404 not found", http.StatusNotFound)
 		return
@@ -37,8 +37,8 @@ func startQuiz(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, data)
 }
 
-func nextQuestion(w http.ResponseWriter, r *http.Request) {
+func NextQuestion(w http.ResponseWriter, r *http.Request) {
 }
 
-func showAnswer(w http.ResponseWriter, r *http.Request) {
+func ShowAnswer(w http.ResponseWriter, r *http.Request) {
 }
