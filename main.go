@@ -18,7 +18,7 @@ func main() {
 	http.HandleFunc("/start", middleWare.StartQuiz)
 	http.HandleFunc("/next", middleWare.NextQuestion)
 	http.HandleFunc("/answer", middleWare.ShowAnswer)
-	//http.HandleFunc("/finish")
+	// http.HandleFunc("/finish")
 
 	// Start the server
 	fmt.Println("Server in running on port 80")
